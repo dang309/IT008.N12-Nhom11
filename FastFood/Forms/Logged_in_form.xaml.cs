@@ -3,17 +3,10 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-
 namespace FastFood.Forms
 {
     /// <summary>
@@ -22,7 +15,8 @@ namespace FastFood.Forms
     public partial class Logged_in_form : Window
     {
         private Border Last_window = null;
-        private List<A_product> products;
+        private readonly List<A_product> products;
+        public An_emp MyEmp { get; set; }
         public Logged_in_form()
         {
             InitializeComponent();
@@ -56,8 +50,29 @@ namespace FastFood.Forms
 
                 products.Add(product);
             }
+        }
 
-            Fragment_container.Children.Add(new Sell_control().Prepare(products));
+        public void Prepare(int emp_code, MySqlCommand cm)
+        {
+            cm.Parameters.Add("_code", MySqlDbType.Int32).Value = emp_code;
+
+            cm.CommandText = "Select * from nhanvien Where MaNV = @_code;";
+            MySqlDataReader reader = cm.ExecuteReader();
+
+            DataTable table = new DataTable();
+            table.Load(reader);
+
+            DataRow dr = table.Rows[0];
+
+            MyEmp = new An_emp()
+            {
+                Code = emp_code,
+                Name = (string)dr[1] + (string)dr[2],
+                Is_male = (string)dr[3] == "Nam",
+                Is_admin = (string)dr[4] == "Admin"
+            };
+
+            Fragment_container.Children.Add(new Sell_control().Prepare(products, MyEmp.Code));
         }
 
         private void Sell_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

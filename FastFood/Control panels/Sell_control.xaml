@@ -1,9 +1,10 @@
-﻿<UserControl x:Class="FastFood.Sell_control"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FastFood"
+             xmlns:Control_panels="clr-namespace:FastFood.Control_panels" x:Class="FastFood.Sell_control"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -29,7 +30,7 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="White"
-                            Text="{Binding Cnt_code, StringFormat='#\{0\}'}"/>
+                            Text="{Binding Cnt_code, StringFormat=#\{0\}}"/>
                     </Border>
 
                     <TextBlock x:Name="Name_txt"
@@ -48,8 +49,7 @@
                         Foreground="Blue"
                         HorizontalAlignment="Right"
                         Text="{Binding Price_str}"
-                        VerticalAlignment="Top">
-                    </TextBlock>
+                        VerticalAlignment="Top"/>
 
                     <TextBlock x:Name="Number_txt"
                         Margin="0,100,0,0"
@@ -69,7 +69,6 @@
     </UserControl.Resources>
 
     <Grid
-        Background="LightGray"
         HorizontalAlignment="Stretch"
         VerticalAlignment="Stretch">
         <ListBox
@@ -79,14 +78,23 @@
             ScrollViewer.CanContentScroll="False"
             ItemTemplate="{DynamicResource A_product}" SelectionChanged="Product_list_SelectionChanged">
             <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
 
         <Image 
             x:Name="Selected_product_img"
+            Source="../image/SanPham/default.png"
+            Stretch="Fill"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Width="200"
+            Height="200"/>
+
+        <Image 
+            x:Name="Animate_img"
             Source="../image/SanPham/default.png"
             Stretch="Fill"
             HorizontalAlignment="Right"
@@ -143,7 +151,7 @@
             Margin="0,0,0,185"
             BorderThickness="0"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom">
+            VerticalAlignment="Bottom" Click="Confirm_btn_Click">
             <Image x:Name="Confirm"
                 Width="30"
                 Height="30"
@@ -154,11 +162,36 @@
             Background="Transparent"
             Margin="0,0,5,5"
             HorizontalAlignment="Right"
-            VerticalAlignment="Bottom">
+            VerticalAlignment="Bottom" Click="Cart_btn_Click">
             <Image
                 Width="30"
                 Height="30"
                 Source="../image/cart.png"/>
         </Button>
+        <Control_panels:Drawer
+            x:Name="Cart_drawer"
+            HorizontalAlignment="Right"/>
+
+        <Label 
+            x:Name="Noti_txt"
+            Width="20"
+            Height="20"
+            FontSize="8"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Content="1"
+            Visibility="Collapsed"
+            Background="Red"
+            HorizontalAlignment="Right" 
+            Margin="0,0,24,20" 
+            VerticalAlignment="Bottom">
+            <Label.Clip>
+                <EllipseGeometry
+                    Center="10, 10"
+                    RadiusX="10"
+                    RadiusY="10"/>
+            </Label.Clip>
+        </Label>
     </Grid>
 </UserControl>

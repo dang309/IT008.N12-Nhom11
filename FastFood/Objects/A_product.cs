@@ -7,7 +7,7 @@ namespace FastFood.Objects
 {
     public class A_product
     {
-        private static CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
+        public static CultureInfo cul = CultureInfo.GetCultureInfo("vi-VN");   // try with "en-US"
         public int Cnt_code { get; set; }
         public string Name { get; set; }
         public int Type_code { get; set; }

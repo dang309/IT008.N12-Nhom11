@@ -89,7 +89,6 @@
             </StackPanel>
         </StackPanel>
         <Grid
-            Background="LightGray"
             x:Name="Fragment_container"
             Margin="110,0,0,0">
         </Grid>

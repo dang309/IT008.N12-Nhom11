@@ -1,4 +1,5 @@
 ﻿using FastFood.Forms;
+using FastFood.Objects;
 using MySql.Data.MySqlClient;
 using System;
 using System.Data;
@@ -69,7 +70,6 @@ namespace FastFood
 
             DataTable table = new DataTable();
             table.Load(reader);
-            cn.Close();
             reader.Close();
 
             if(table.Rows.Count == 0)
@@ -78,9 +78,20 @@ namespace FastFood
             }
             else
             {
-                new Logged_in_form().Show();
+                DataRow dr = table.Rows[0];
+
+                int emp_code = Convert.ToInt32(dr[0]);
+
+                dr = table.Rows[0];
+
+                Logged_in_form form = new Logged_in_form();
+
+                form.Prepare(emp_code, cm);
+                form.Show();
                 Close();
             }
+
+            cn.Close();
         }
     }
 }

@@ -8,11 +8,11 @@
              x:Name="Hint_box"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBox  Padding="5"
-                  Width="150"
+        <TextBox  x:Name="SearchTermTextBox"
+                  Padding="5"
+                  Width="{Binding ElementName=Hint_box, Path=Box_size}"
                   VerticalAlignment="Top" 
-                  HorizontalAlignment="Left" 
-                  x:Name="Main_editTxt"
+                  HorizontalAlignment="Left"
                   Background="LightGray">
             <TextBox.Resources>
                 <Style TargetType="{x:Type Border}">
@@ -24,7 +24,7 @@
             IsHitTestVisible="False"
             Foreground="White"
             Width="130"
-            Text="{Binding ElementName=Hint_box, Path=HintText}" 
+            Text="{Binding ElementName=Hint_box, Path=HintText}"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
             Margin="10,5,0,0">
