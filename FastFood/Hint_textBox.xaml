@@ -10,6 +10,7 @@
     <Grid>
         <TextBox  x:Name="SearchTermTextBox"
                   Padding="5"
+                  Text="{Binding ElementName=Hint_box, Path=TextContent}"
                   Width="{Binding ElementName=Hint_box, Path=Box_size}"
                   VerticalAlignment="Top" 
                   HorizontalAlignment="Left"

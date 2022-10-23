@@ -1,4 +1,5 @@
-﻿using FastFood.Objects;
+﻿using FastFood.Control_panels.Discount_window;
+using FastFood.Objects;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,16 @@ namespace FastFood.Forms
     /// </summary>
     public partial class Logged_in_form : Window
     {
-        private Border Last_window = null;
+        private Border Last_tab;
+
         private readonly List<A_product> products;
         public An_emp MyEmp { get; set; }
         public Logged_in_form()
         {
             InitializeComponent();
+
+            Last_tab = Sell_window;
+            Sell_window.Background = Brushes.BlueViolet;
 
             products = new List<A_product>();
 
@@ -78,20 +83,31 @@ namespace FastFood.Forms
         private void Sell_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Toggle((Border)sender);
+
+            if(!(Fragment_container.Children[0] is Sell_control))
+            {
+                Fragment_container.Children.RemoveAt(0);
+                Fragment_container.Children.Add(new Sell_control().Prepare(products, MyEmp.Code));
+            }
         }
 
         private void Discount_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Toggle((Border)sender);
+
+            if (!(Fragment_container.Children[0] is Discount_control))
+            {
+                Fragment_container.Children.RemoveAt(0);
+                Fragment_container.Children.Add(new Discount_control());
+            }
         }
 
         private void Toggle(Border border)
         {
-            if (Last_window != null)
-                Last_window.Background = Brushes.Transparent;
+            Last_tab.Background = Brushes.Transparent;
 
             border.Background = Brushes.BlueViolet;
-            Last_window = border;
+            Last_tab = border;
         }
 
         private void Product_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

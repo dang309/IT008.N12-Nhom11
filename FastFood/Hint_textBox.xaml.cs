@@ -35,8 +35,18 @@ namespace FastFood
             set { SetValue(box_sz_property, value); }
         }
 
+        public string TextContent
+        {
+            get { return (string)GetValue(textContent_property); }
+            set { SetValue(textContent_property, value); }
+        }
+
         public static readonly DependencyProperty hint_property
             = DependencyProperty.Register("HintText", typeof(string),
+                typeof(Hint_textBox), new PropertyMetadata("TEST"));
+
+        public static readonly DependencyProperty textContent_property
+            = DependencyProperty.Register("TextContent", typeof(string),
                 typeof(Hint_textBox), new PropertyMetadata("TEST"));
 
         public static readonly DependencyProperty box_sz_property

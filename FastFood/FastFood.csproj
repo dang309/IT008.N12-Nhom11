@@ -13,6 +13,7 @@
     <None Remove="image\cart.png" />
     <None Remove="image\check-icon.png" />
     <None Remove="image\confirm.png" />
+    <None Remove="image\edit.png" />
     <None Remove="image\excel-icon.png" />
     <None Remove="image\female.png" />
     <None Remove="image\icons8_calendar_25_20px.png" />
@@ -72,7 +73,6 @@
     <None Remove="image\ManagerUI\title-text.png" />
     <None Remove="image\ManagerUI\truck.png" />
     <None Remove="image\next.png" />
-    <None Remove="image\Pencil-icon.png" />
     <None Remove="image\Refresh-icon.png" />
     <None Remove="image\return.png" />
     <None Remove="image\SanPham\7up.png" />
@@ -133,6 +133,7 @@
     <None Remove="image\SanPham\tradao.png" />
     <None Remove="image\save_2.png" />
     <None Remove="image\Search-icon.png" />
+    <None Remove="image\simple_back.png" />
     <None Remove="image\subtract.png" />
     <None Remove="image\x_sign.png" />
   </ItemGroup>
@@ -208,7 +209,7 @@
     <Resource Include="image\ManagerUI\thongKeNhanVien.png" />
     <Resource Include="image\ManagerUI\title-text.png" />
     <Resource Include="image\ManagerUI\truck.png" />
-    <Resource Include="image\Pencil-icon.png" />
+    <Resource Include="image\edit.png" />
     <Resource Include="image\Refresh-icon.png" />
     <Resource Include="image\SanPham\7up.png" />
     <Resource Include="image\SanPham\aquafina.png" />
@@ -268,6 +269,7 @@
     <Resource Include="image\SanPham\tradao.png" />
     <Resource Include="image\save_2.png" />
     <Resource Include="image\Search-icon.png" />
+    <Resource Include="image\simple_back.png" />
     <Resource Include="image\subtract.png" />
     <Resource Include="image\x_sign.png" />
   </ItemGroup>
