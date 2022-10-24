@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Globalization;
 using System.IO;
+using System.Text;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -16,6 +18,8 @@ namespace FastFood.Control_panels
     /// </summary>
     public partial class Employee_control : UserControl
     {
+        private static CultureInfo culture = new CultureInfo("vi-VN");
+
         private string last_text = "";
         private double direction, width_direction;
 
@@ -59,6 +63,11 @@ namespace FastFood.Control_panels
 
                     if(width_direction > 0)
                     {
+                        FileStream fs = File.Open(@"D:\History.txt", FileMode.Open);
+
+                        fs.Write(Encoding.UTF8.GetBytes(selected_emp.Name + Environment.NewLine));
+                        fs.Close();
+
                         Control_container.Children.Add(new Employee_profile_control()
                             .Prepare(selected_emp)
                             .Add_back_listener(() =>
@@ -99,7 +108,7 @@ namespace FastFood.Control_panels
 
             foreach (var line in File.ReadLines(@"D:\History.txt"))
             {
-                if (line.Contains(search_term))
+                if (culture.CompareInfo.IndexOf(line, search_term, CompareOptions.IgnoreCase) >= 0)
                 {
                     DataTable table = Find_similar(search_term);
                     DataRow dr = table.Rows[0];
@@ -194,18 +203,6 @@ namespace FastFood.Control_panels
                 {
                     string Full_name = (string)dr[1] + " " + (string)dr[2];
 
-                    bool found = false;
-                    foreach (var hint in hints)
-                    {
-                        if (Full_name.Contains(hint.Search_Content))
-                        {
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    int t = A_search.NAME;
-
                     An_emp emp = new An_emp()
                     {
                         Code = Convert.ToInt32(dr[0]),
@@ -214,18 +211,21 @@ namespace FastFood.Control_panels
                         ChucVu = (string)dr[4]
                     };
 
-                    if (!Full_name.Contains(search_term))
-                        t = A_search.ID;
+                    int t = A_search.NAME;
+                    string content = Full_name;
 
-                    if (!found)
+                    if (culture.CompareInfo.IndexOf(Full_name, search_term, CompareOptions.IgnoreCase) < 0)
                     {
-                        hints.Add(new A_search()
-                        {
-                            Search_Content = Full_name,
-                            type = t,
-                            Associated_emp = emp
-                        });
+                        content = Convert.ToInt32(dr[0]) + " - " + content;
+                        t = A_search.ID;
                     }
+
+                    hints.Add(new A_search()
+                    {
+                        Search_Content = content,
+                        Associated_emp = emp,
+                        type = t
+                    });
 
                     emps.Add(emp);
                 }
