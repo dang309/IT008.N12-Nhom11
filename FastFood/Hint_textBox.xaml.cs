@@ -47,7 +47,7 @@ namespace FastFood
 
         public static readonly DependencyProperty textContent_property
             = DependencyProperty.Register("TextContent", typeof(string),
-                typeof(Hint_textBox), new PropertyMetadata("TEST"));
+                typeof(Hint_textBox), new PropertyMetadata(""));
 
         public static readonly DependencyProperty box_sz_property
             = DependencyProperty.Register("Box_size", typeof(int),

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FastFood.Forms"
         mc:Ignorable="d"
-        Title="Logged_in_form" Height="450" Width="800">
+        Title="Logged_in_form" Height="450" Width="870">
     <Grid>
         <StackPanel
             Background="Black"
@@ -27,7 +27,8 @@
                     Source="../image/ManagerUI/lblKhuyenMai.png"/>
                 </Border>
                 
-                <Border x:Name="Product_window" MouseLeftButtonDown="Product_window_MouseLeftButtonDown">
+                <Border x:Name="Product_window" 
+                        MouseLeftButtonDown="Product_window_MouseLeftButtonDown">
                     <Image
                     Stretch="Fill"
                     Source="../image/ManagerUI/lblSanPham.png"/>

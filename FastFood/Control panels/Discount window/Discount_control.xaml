@@ -111,7 +111,8 @@
             VerticalAlignment="Top"  
             ScrollViewer.HorizontalScrollBarVisibility="Hidden"
             ItemTemplate="{DynamicResource A_discount}"
-            Margin="0,40,0,0" MouseLeftButtonUp="Discount_list_MouseLeftButtonUp">
+            Margin="0,40,0,0" 
+            MouseLeftButtonUp="Discount_list_MouseLeftButtonUp">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal"/>

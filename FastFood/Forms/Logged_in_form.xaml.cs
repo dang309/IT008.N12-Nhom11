@@ -1,4 +1,5 @@
-﻿using FastFood.Control_panels.Discount_window;
+﻿using FastFood.Control_panels;
+using FastFood.Control_panels.Discount_window;
 using FastFood.Objects;
 using MySql.Data.MySqlClient;
 using System;
@@ -118,6 +119,12 @@ namespace FastFood.Forms
         private void Emp_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Toggle((Border)sender);
+
+            if (!(Fragment_container.Children[0] is Employee_control))
+            {
+                Fragment_container.Children.RemoveAt(0);
+                Fragment_container.Children.Add(new Employee_control());
+            }
         }
 
         private void Customer_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
