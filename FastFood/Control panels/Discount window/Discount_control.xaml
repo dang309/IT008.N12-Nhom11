@@ -1,0 +1,162 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FastFood.Control_panels.Discount_window"
+             xmlns:Control_panels="clr-namespace:FastFood.Control_panels" x:Class="FastFood.Control_panels.Discount_window.Discount_control"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <DataTemplate x:Key="A_discount">
+            <Grid
+                Width="210">
+                <StackPanel
+                    HorizontalAlignment="Center"
+                    Opacity="1.0"
+                    Orientation="Vertical">
+                    <StackPanel.Style>
+                        <Style TargetType="StackPanel">
+                            <Setter Property="Opacity" Value="1.0"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Out_of_date}" Value="True">
+                                    <Setter Property="Opacity" Value="0.6"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </StackPanel.Style>
+                    
+                    <TextBlock 
+                        TextWrapping="Wrap"
+                        x:Name="Discount_name_txt" 
+                        Text="{Binding Name}"/>
+                    <TextBlock HorizontalAlignment="Center">
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat=" {0} đến {1}">
+                                <Binding Path="Begin_date_str"/>
+                                <Binding Path="End_date_str"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </StackPanel>
+
+                <Label
+                    x:Name="Out_of_date_txt"
+                    VerticalAlignment="Bottom"
+                    Foreground="Red"
+                    Content="Hết hiệu lực">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Out_of_date}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+
+                <Button
+                    Style="{DynamicResource OnItemClick}"
+                    Margin="60,0,0,0"
+                    x:Name="Delete_btn"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom" Click="Delete_btn_Click">
+                    <Image
+                        Width="20"
+                        Height="20"
+                        Source="../../image/ManagerUI/delete-icon.png"/>
+                </Button>
+
+                <Button
+                    Style="{DynamicResource OnItemClick}"
+                    x:Name="Edit_btn"
+                    Background="Transparent"
+                    BorderThickness="0"
+                    Margin="0,0,60,0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom" Click="Edit_btn_Click">
+                    <Image
+                        Width="20"
+                        Height="20"
+                        Source="../../image/edit.png"/>
+                </Button>
+            </Grid>
+        </DataTemplate>
+
+        <Style x:Key="OnItemClick" TargetType="Button">
+            <Setter
+                Property="Visibility" Value="Collapsed"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding ItemClicked}" Value="True">
+                    <Setter
+                        Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid x:Name="Container">
+        <Label
+            VerticalAlignment="Top" 
+            HorizontalAlignment="Center"
+            Foreground="Red"
+            FontSize="18"
+            FontFamily="Bahnschrift"
+            Content="Mã giảm giá"/>
+        <ListBox x:Name="Discount_list" 
+            Height="100"
+            VerticalAlignment="Top"  
+            ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+            ItemTemplate="{DynamicResource A_discount}"
+            Margin="0,40,0,0" SelectionChanged="Discount_list_SelectionChanged">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="VerticalContentAlignment"
+                            Value="Stretch"/>
+                    <EventSetter 
+                        Event="RequestBringIntoView" 
+                        Handler="AutoScroll_disabler"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
+        <Control_panels:HoverButton x:Name="Next_btn" 
+            HorizontalAlignment="Right"
+            Height="100"
+            Margin="0,40,0,0"
+            VerticalAlignment="Top"/>
+
+        <Control_panels:HoverButton 
+            x:Name="Back_btn" 
+            HorizontalAlignment="Left"
+            Height="100"
+            Margin="0,40,0,0"
+            IconPath="image/simple_back.png"
+            VerticalAlignment="Top"/>
+        <Button x:Name="Add_btn" 
+            BorderThickness="0,0,0,1"
+            Background="Transparent"
+            Content="Thêm mã giảm giá"
+            HorizontalAlignment="Left"
+            Margin="20,168,0,0"
+            VerticalAlignment="Top" Click="Add_btn_Click"/>
+
+        <Button x:Name="Delete_all_btn"
+            BorderThickness="0,0,0,1"
+            Foreground="Red"
+            Background="Transparent"
+            Content="Xóa các mã hết hiệu lực"
+            HorizontalAlignment="Left"
+            Margin="20,198,0,0"
+            VerticalAlignment="Top" Click="Delete_all_btn_Click"/>
+    </Grid>
+</UserControl>

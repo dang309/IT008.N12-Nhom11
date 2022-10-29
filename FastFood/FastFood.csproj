@@ -1,0 +1,173 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="image\add-icon.png" />
+    <None Remove="image\backgroundManagerment.jpg" />
+    <None Remove="image\cancel.png" />
+    <None Remove="image\cart.png" />
+    <None Remove="image\check-icon.png" />
+    <None Remove="image\confirm.png" />
+    <None Remove="image\edit.png" />
+    <None Remove="image\excel-icon.png" />
+    <None Remove="image\female.png" />
+    <None Remove="image\history.png" />
+    <None Remove="image\icons8_calendar_25_20px.png" />
+    <None Remove="image\icons8_denied_32px.png" />
+    <None Remove="image\icons8_info_70px.png" />
+    <None Remove="image\icons8_man_with_key_32px.png" />
+    <None Remove="image\icons8_password_reset_32px.png" />
+    <None Remove="image\icons8_previous_40px.png" />
+    <None Remove="image\icons8_view_40px.png" />
+    <None Remove="image\icons8_warning_shield_70px.png" />
+    <None Remove="image\icons8_x_24px.png" />
+    <None Remove="image\loading.gif" />
+    <None Remove="image\loading.png" />
+    <None Remove="image\LoginUI\background-login.png" />
+    <None Remove="image\LoginUI\background-logina.png" />
+    <None Remove="image\LoginUI\btn-close--hover.png" />
+    <None Remove="image\LoginUI\btn-close.png" />
+    <None Remove="image\LoginUI\btn-forgot--hover.png" />
+    <None Remove="image\LoginUI\btn-forgot.png" />
+    <None Remove="image\LoginUI\btn-login--hover.png" />
+    <None Remove="image\LoginUI\btn-login.png" />
+    <None Remove="image\male.png" />
+    <None Remove="image\ManagerUI\avatar.png" />
+    <None Remove="image\ManagerUI\bangChiTiet.png" />
+    <None Remove="image\ManagerUI\bangThongKe.png" />
+    <None Remove="image\ManagerUI\btn-BanHang--hover.png" />
+    <None Remove="image\ManagerUI\btn-BanHang.png" />
+    <None Remove="image\ManagerUI\btn-close--hover.png" />
+    <None Remove="image\ManagerUI\btn-close.png" />
+    <None Remove="image\ManagerUI\btn-minimize--hover.png" />
+    <None Remove="image\ManagerUI\btn-minimize.png" />
+    <None Remove="image\ManagerUI\cart.png" />
+    <None Remove="image\ManagerUI\chart.png" />
+    <None Remove="image\ManagerUI\customer.png" />
+    <None Remove="image\ManagerUI\default.png" />
+    <None Remove="image\ManagerUI\delete-icon.png" />
+    <None Remove="image\ManagerUI\discount.png" />
+    <None Remove="image\ManagerUI\emp.png" />
+    <None Remove="image\ManagerUI\exit.png" />
+    <None Remove="image\ManagerUI\food.png" />
+    <None Remove="image\ManagerUI\gear.png" />
+    <None Remove="image\ManagerUI\icon-app.png" />
+    <None Remove="image\ManagerUI\icons8_gear_46px.png" />
+    <None Remove="image\ManagerUI\lblBanHang.png" />
+    <None Remove="image\ManagerUI\lblKhachHang.png" />
+    <None Remove="image\ManagerUI\lblKhuyenMai.png" />
+    <None Remove="image\ManagerUI\lblNhanVien.png" />
+    <None Remove="image\ManagerUI\lblNhapHang.png" />
+    <None Remove="image\ManagerUI\lblSanPham.png" />
+    <None Remove="image\ManagerUI\lblThongKe.png" />
+    <None Remove="image\ManagerUI\refresh.png" />
+    <None Remove="image\ManagerUI\tabbed-btn--selected.png" />
+    <None Remove="image\ManagerUI\tabbed-btn.png" />
+    <None Remove="image\ManagerUI\thongKeDoanhThu.png" />
+    <None Remove="image\ManagerUI\thongKeKhachHang.png" />
+    <None Remove="image\ManagerUI\thongKeMon.png" />
+    <None Remove="image\ManagerUI\thongKeNhanVien.png" />
+    <None Remove="image\ManagerUI\title-text.png" />
+    <None Remove="image\ManagerUI\truck.png" />
+    <None Remove="image\name.png" />
+    <None Remove="image\next.png" />
+    <None Remove="image\Refresh-icon.png" />
+    <None Remove="image\return.png" />
+    <None Remove="image\save_2.png" />
+    <None Remove="image\Search-icon.png" />
+    <None Remove="image\simple_back.png" />
+    <None Remove="image\subtract.png" />
+    <None Remove="image\tag.png" />
+    <None Remove="image\x_sign.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="image\add-icon.png" />
+    <Resource Include="image\backgroundManagerment.jpg" />
+    <Resource Include="image\cancel.png" />
+    <Resource Include="image\cart.png" />
+    <Resource Include="image\check-icon.png" />
+    <Resource Include="image\confirm.png" />
+    <Resource Include="image\edit.png" />
+    <Resource Include="image\excel-icon.png" />
+    <Resource Include="image\female.png" />
+    <Resource Include="image\history.png" />
+    <Resource Include="image\icons8_calendar_25_20px.png" />
+    <Resource Include="image\icons8_denied_32px.png" />
+    <Resource Include="image\icons8_info_70px.png" />
+    <Resource Include="image\icons8_man_with_key_32px.png" />
+    <Resource Include="image\icons8_password_reset_32px.png" />
+    <Resource Include="image\icons8_previous_40px.png" />
+    <Resource Include="image\icons8_view_40px.png" />
+    <Resource Include="image\icons8_warning_shield_70px.png" />
+    <Resource Include="image\icons8_x_24px.png" />
+    <Resource Include="image\loading.gif" />
+    <Resource Include="image\loading.png" />
+    <Resource Include="image\LoginUI\background-login.png" />
+    <Resource Include="image\LoginUI\background-logina.png" />
+    <Resource Include="image\LoginUI\btn-close--hover.png" />
+    <Resource Include="image\LoginUI\btn-close.png" />
+    <Resource Include="image\LoginUI\btn-forgot--hover.png" />
+    <Resource Include="image\LoginUI\btn-forgot.png" />
+    <Resource Include="image\LoginUI\btn-login--hover.png" />
+    <Resource Include="image\LoginUI\btn-login.png" />
+    <Resource Include="image\male.png" />
+    <Resource Include="image\ManagerUI\avatar.png" />
+    <Resource Include="image\ManagerUI\bangChiTiet.png" />
+    <Resource Include="image\ManagerUI\bangThongKe.png" />
+    <Resource Include="image\ManagerUI\btn-BanHang--hover.png" />
+    <Resource Include="image\ManagerUI\btn-BanHang.png" />
+    <Resource Include="image\ManagerUI\btn-close--hover.png" />
+    <Resource Include="image\ManagerUI\btn-close.png" />
+    <Resource Include="image\ManagerUI\btn-minimize--hover.png" />
+    <Resource Include="image\ManagerUI\btn-minimize.png" />
+    <Resource Include="image\ManagerUI\cart.png" />
+    <Resource Include="image\ManagerUI\chart.png" />
+    <Resource Include="image\ManagerUI\customer.png" />
+    <Resource Include="image\ManagerUI\default.png" />
+    <Resource Include="image\ManagerUI\delete-icon.png" />
+    <Resource Include="image\ManagerUI\discount.png" />
+    <Resource Include="image\ManagerUI\emp.png" />
+    <Resource Include="image\ManagerUI\exit.png" />
+    <Resource Include="image\ManagerUI\food.png" />
+    <Resource Include="image\ManagerUI\gear.png" />
+    <Resource Include="image\ManagerUI\icon-app.png" />
+    <Resource Include="image\ManagerUI\icons8_gear_46px.png" />
+    <Resource Include="image\ManagerUI\lblBanHang.png" />
+    <Resource Include="image\ManagerUI\lblKhachHang.png" />
+    <Resource Include="image\ManagerUI\lblKhuyenMai.png" />
+    <Resource Include="image\ManagerUI\lblNhanVien.png" />
+    <Resource Include="image\ManagerUI\lblNhapHang.png" />
+    <Resource Include="image\ManagerUI\lblSanPham.png" />
+    <Resource Include="image\ManagerUI\lblThongKe.png" />
+    <Resource Include="image\ManagerUI\refresh.png" />
+    <Resource Include="image\ManagerUI\tabbed-btn--selected.png" />
+    <Resource Include="image\ManagerUI\tabbed-btn.png" />
+    <Resource Include="image\ManagerUI\thongKeDoanhThu.png" />
+    <Resource Include="image\ManagerUI\thongKeKhachHang.png" />
+    <Resource Include="image\ManagerUI\thongKeMon.png" />
+    <Resource Include="image\ManagerUI\thongKeNhanVien.png" />
+    <Resource Include="image\ManagerUI\title-text.png" />
+    <Resource Include="image\ManagerUI\truck.png" />
+    <Resource Include="image\name.png" />
+    <Resource Include="image\next.png" />
+    <Resource Include="image\Refresh-icon.png" />
+    <Resource Include="image\return.png" />
+    <Resource Include="image\save_2.png" />
+    <Resource Include="image\Search-icon.png" />
+    <Resource Include="image\simple_back.png" />
+    <Resource Include="image\subtract.png" />
+    <Resource Include="image\tag.png" />
+    <Resource Include="image\x_sign.png" />
+  </ItemGroup>
+
+</Project>

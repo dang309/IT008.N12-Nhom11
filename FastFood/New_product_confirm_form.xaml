@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="FastFood.New_product_confirm_form"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FastFood"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid
+        Background="LightGray"
+        Width="400"
+        Height="400">
+        <local:Hint_textBox x:Name="Name_editTxt"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,25,0,0"
+            Box_size="150"
+            HintText="Nhập vào tên sản phẩm"/>
+
+        <local:Hint_textBox x:Name="DonViTinh_editTxt"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="0,25,35,0"
+            Box_size="80"
+            HintText="Đơn vị tính"/>
+
+
+        <Label 
+            Content="Chỉ dùng các mã loại từ 1 đến 9"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,95,0,0"/>
+        <local:Hint_textBox x:Name="TypeCode_editTxt"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="10,65,0,0"
+            Box_size="60"
+            HintText="Mã loại"/>
+
+        <local:Hint_textBox x:Name="Number_editTxt"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,65,0,0"
+            Box_size="65"
+            HintText="Số lượng"/>
+
+        <local:Hint_textBox x:Name="Price_editTxt"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Margin="0,65,0,0"
+            Box_size="100"
+            HintText="Đơn giá"/>
+
+        <Border
+            HorizontalAlignment="Center"
+            VerticalAlignment="Top"
+            Margin="0,130,0,0"
+            Background="SkyBlue"
+            CornerRadius="16">
+            <Button
+                x:Name="Choose_img_btn"
+                Background="Transparent"
+                BorderBrush="Transparent"
+                Padding="6"
+                Content="Ấn để chọn ảnh cho sản phẩm" Click="Choose_img_btn_Click"/>
+        </Border>
+
+        <Border
+            Margin="0,80,0,0"
+            Width="150"
+            Height="150"
+            BorderBrush="Black"
+            BorderThickness="1">
+            <Image x:Name="Product_img"
+            Source="image/SanPham/default.png"/>
+        </Border>
+
+        <Button x:Name="Import_btn"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Bottom"
+            Margin="30"
+            FontSize="15"
+            Content="Xác nhận" Click="Import_btn_Click"/>
+
+        <Button x:Name="Cancel_btn"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="30"
+            FontSize="15"
+            Content="Hủy" Click="Cancel_btn_Click"/>
+    </Grid>
+</UserControl>
