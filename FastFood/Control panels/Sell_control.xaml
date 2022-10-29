@@ -43,7 +43,7 @@
                         Margin="0,40,0,0"
                         HorizontalAlignment="Left"
                         Stretch="Fill"
-                        Source="{Binding Product_img_str}"/>
+                        Source="{Binding Product_img}"/>
                     <TextBlock x:Name="Price_txt"
                         Margin="0,60,0,0"
                         Foreground="Blue"

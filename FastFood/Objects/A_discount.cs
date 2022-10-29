@@ -10,20 +10,78 @@ namespace FastFood.Objects
     {
         // Main data
         public int Code { get; set; }
-        public string Name { get; set; }
-        public int Percent { get; set; }
-        public int Constraint { get; set; }
-        public DateTime Begin_date { get; set; }
-        public DateTime End_date { get; set; }
+        private string Name_value;
+        public string Name 
+        {
+            get { return Name_value; }
+            set 
+            {
+                Name_value = value;
+                OnPropertyChanged();
+            } 
+        }
+        private int Percent_value;
+        public int Percent 
+        {
+            get { return Percent_value; }
+            set
+            {
+                Percent_value = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int Constraint_value;
+        public int Constraint
+        {
+            get { return Constraint_value;  }
+            set
+            {
+                Constraint_value = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private DateTime Begin_date_value;
+        public DateTime Begin_date 
+        {
+            get { return Begin_date_value; }
+            set
+            {
+                Begin_date_value = value;
+                Begin_date_str = ""; // changed it
+                Out_of_date = true; // fake set
+            }
+        }
+
+        private DateTime End_date_value;
+        public DateTime End_date 
+        {
+            get { return End_date_value; }
+            set
+            {
+                End_date_value = value;
+                End_date_str = "";
+                Out_of_date = true; // fake set
+            }
+        }
 
         // UI-render data
         public string Begin_date_str
         {
             get { return Begin_date.ToString("dd-MM-yyyy"); }
+            set 
+            {
+                OnPropertyChanged(); 
+            }
         }
         public string End_date_str
         {
             get { return End_date.ToString("dd-MM-yyyy"); }
+            set
+            {
+                OnPropertyChanged();
+            }
         }
 
         public bool Out_of_date
@@ -34,6 +92,8 @@ namespace FastFood.Objects
 
                 return today > End_date;
             }
+
+            set { OnPropertyChanged(); }
         }
 
         private bool ItemClicked_value;

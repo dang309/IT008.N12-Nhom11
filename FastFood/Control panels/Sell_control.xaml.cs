@@ -1,7 +1,9 @@
 ﻿using FastFood.Objects;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -49,8 +51,30 @@ namespace FastFood
             };
         }
 
-        public Sell_control Prepare(List<A_product> products, int Emp_code)
+        public Sell_control Prepare(int Emp_code)
         {
+            List<A_product> products = new List<A_product>();
+
+            MySqlConnection cn = null;
+
+            MySqlCommand cm = Tools.Connect(ref cn);
+
+            cm.CommandText = "Select * from sanpham;";
+
+            MySqlDataReader reader = cm.ExecuteReader();
+
+            DataTable table = new DataTable();
+            table.Load(reader);
+            reader.Close();
+            cn.Close();
+
+            foreach (DataRow dr in table.Rows)
+            {
+                A_product product = new A_product(dr);
+
+                products.Add(product);
+            }
+
             Product_list.ItemsSource = products;
             Number_txt.Text = "NaN";
             this.Emp_code = Emp_code;
@@ -93,8 +117,8 @@ namespace FastFood
         {
             A_product product = (A_product)Product_list.SelectedItem;
 
-            Selected_product_img.Source = new BitmapImage(new Uri(product.Product_img_str, UriKind.Relative));
-            Animate_img.Source = new BitmapImage(new Uri(product.Product_img_str, UriKind.Relative));
+            Selected_product_img.Source = product.Product_img;
+            Animate_img.Source = product.Product_img;
 
             Number_txt.Text = "1";
         }

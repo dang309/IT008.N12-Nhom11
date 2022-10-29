@@ -19,7 +19,7 @@
                         Stretch="Fill"
                         Width="80"
                         Height="60"
-                        Source="{Binding ImgPath}"/>
+                        Source="{Binding Product_img}"/>
                     <TextBlock
                         Text="{Binding item_name}"
                         Margin="85,0,0,0"

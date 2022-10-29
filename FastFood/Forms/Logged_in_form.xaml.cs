@@ -17,8 +17,6 @@ namespace FastFood.Forms
     public partial class Logged_in_form : Window
     {
         private Border Last_tab;
-
-        private readonly List<A_product> products;
         public An_emp MyEmp { get; set; }
         public Logged_in_form()
         {
@@ -26,36 +24,6 @@ namespace FastFood.Forms
 
             Last_tab = Sell_window;
             Sell_window.Background = Brushes.BlueViolet;
-
-            products = new List<A_product>();
-
-            MySqlConnection cn = null;
-
-            MySqlCommand cm = Tools.Connect(ref cn);
-
-            cm.CommandText = "Select * from sanpham;";
-
-            MySqlDataReader reader = cm.ExecuteReader();
-
-            DataTable table = new DataTable();
-            table.Load(reader);
-            reader.Close();
-            cn.Close();
-
-            foreach(DataRow dr in table.Rows)
-            {
-                A_product product = new A_product();
-
-                product.Cnt_code = Convert.ToInt32(dr[0]);
-                product.Name = Convert.ToString(dr[1]);
-                product.Type_code = Convert.ToInt32(dr[2]);
-                product.Number = Convert.ToInt32(dr[3]);
-                product.Type_str = Convert.ToString(dr[4]);
-                product.Product_img_str = Convert.ToString(dr[5]);
-                product.Price = Convert.ToInt32(dr[6]);
-
-                products.Add(product);
-            }
         }
 
         public void Prepare(int emp_code, MySqlCommand cm)
@@ -78,7 +46,7 @@ namespace FastFood.Forms
                 Is_admin = (string)dr[4] == "Admin"
             };
 
-            Fragment_container.Children.Add(new Sell_control().Prepare(products, MyEmp.Code));
+            Fragment_container.Children.Add(new Sell_control().Prepare(MyEmp.Code));
         }
 
         private void Sell_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -88,7 +56,7 @@ namespace FastFood.Forms
             if(!(Fragment_container.Children[0] is Sell_control))
             {
                 Fragment_container.Children.RemoveAt(0);
-                Fragment_container.Children.Add(new Sell_control().Prepare(products, MyEmp.Code));
+                Fragment_container.Children.Add(new Sell_control().Prepare(MyEmp.Code));
             }
         }
 
@@ -114,6 +82,12 @@ namespace FastFood.Forms
         private void Product_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Toggle((Border)sender);
+
+            if (!(Fragment_container.Children[0] is Product_control))
+            {
+                Fragment_container.Children.RemoveAt(0);
+                Fragment_container.Children.Add(new Product_control());
+            }
         }
 
         private void Emp_window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

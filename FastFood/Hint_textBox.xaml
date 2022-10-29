@@ -24,7 +24,7 @@
         <TextBlock
             IsHitTestVisible="False"
             Foreground="White"
-            Width="130"
+            Width="{Binding ElementName=Hint_box, Path=Box_size}"
             Text="{Binding ElementName=Hint_box, Path=HintText}"
             VerticalAlignment="Top"
             HorizontalAlignment="Left"
