@@ -42,7 +42,7 @@
             HorizontalAlignment="Right"  
             VerticalAlignment="Top" 
             MouseEnter="Hover_MouseEnter"
-            MouseLeave="Close_btn_MouseLeave">
+            MouseLeave="Close_btn_MouseLeave" Click="Close_btn_Click">
             <Image x:Name="Close_img"
                 Width="20"
                 Height="20"

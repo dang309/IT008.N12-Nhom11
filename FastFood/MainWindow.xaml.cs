@@ -93,5 +93,10 @@ namespace FastFood
 
             cn.Close();
         }
+
+        private void Close_btn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

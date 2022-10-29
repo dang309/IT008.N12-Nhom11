@@ -25,11 +25,13 @@ namespace FastFood.Control_panels.Discount_window
 
         private int last_clicked_index = -1, First_visible_index = 0, Last_visible_index;
         private double move_direction, opac_direction;
+        private bool Just_deleted;
 
         public Discount_control()
         {
             InitializeComponent();
 
+            Just_deleted = false;
             Fetch_data();
 
             Next_btn.AddOnClickListener(() =>
@@ -78,6 +80,8 @@ namespace FastFood.Control_panels.Discount_window
                     }
                 }
             };
+
+            MessageBox.Show("Ấn vào từng mã giảm giá để edit và xóa.\n Để xem thêm mã giảm giá, lia chuột đến góc trái/phải nhất của danh sách.", "HDSD");
         }
 
         private void Fetch_data()
@@ -122,6 +126,7 @@ namespace FastFood.Control_panels.Discount_window
 
         private void Delete_btn_Click(object sender, RoutedEventArgs e)
         {
+            Just_deleted = true;
             Remove_item(First_visible_index + Discount_list.SelectedIndex);
         }
 
@@ -213,8 +218,14 @@ namespace FastFood.Control_panels.Discount_window
             });
         }
 
-        private void Discount_list_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Discount_list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if(Just_deleted)
+            {
+                Just_deleted = false;
+                return;
+            }
+
             if (last_clicked_index >= 0 && last_clicked_index < buffer.Count)
                 buffer[last_clicked_index].ItemClicked = false;
 

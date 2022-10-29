@@ -91,6 +91,8 @@ namespace FastFood.Control_panels
             };
 
             cn.Close();
+
+            MessageBox.Show("Ấn vào từng hàng đang đợi nhập để nhập hàng.\n Tất cả sản phẩm có sử dụng pagination.");
         }
         private static Visual GetDescendantByType(Visual element, Type type)
         {

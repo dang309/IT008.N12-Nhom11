@@ -7,6 +7,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -97,6 +98,9 @@ namespace FastFood.Control_panels
                 else if (Math.Abs(Control_container.Opacity - 1.0) < 0.00001)
                     animate_timer.Stop();
             };
+
+            MessageBox.Show("Nhấn đúp vào card nhân viên(màu vàng) để xem lược sử. \nTìm kiếm có kèm gợi ý. \n" +
+                "Lia chuột đến góc trái/phải nhất để xem thêm card nhân viên.", "HDSD");
         }
 
         private List<A_search> Search_in_history(string search_term)
