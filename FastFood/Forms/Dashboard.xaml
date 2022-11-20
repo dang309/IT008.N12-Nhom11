@@ -1,0 +1,52 @@
+﻿<Window x:Class="FastFood.Forms.Dashboard" x:Name="dashboardWin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:FastFood.Forms"
+    xmlns:FastFood="clr-namespace:FastFood"
+    xmlns:Pages="clr-namespace:FastFood.Pages" mc:Ignorable="d" Title="Trang chủ" Height="900" Width="1600" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <TabControl x:Name="tabControlWrapper" TabStripPlacement="Left" Margin="10,10,10,10">
+            <TabItem Header="Bán hàng">
+                <TabControl TabStripPlacement="Top" >
+                    <TabItem x:Name="sellingTab" Header="Bán hàng" HorizontalAlignment="Right"/>
+
+                    <TabItem x:Name="billingTab" Header="Hóa đơn" HorizontalAlignment="Left" />
+
+                </TabControl>
+            </TabItem>
+            <TabItem x:Name="productManagementTab" Header="Sản phẩm"/>
+
+            <TabItem Header="Nhân viên">
+                <TabControl TabStripPlacement="Top" >
+                    <TabItem x:Name="empTab" Header="Nhân viên" HorizontalAlignment="Right"/>
+
+                    <TabItem x:Name="rightTab" Header="Quyền" HorizontalAlignment="Left"/>
+                </TabControl>
+            </TabItem>
+
+            <TabItem x:Name="cusManagementTab" Header="Khách hàng" />
+
+            <TabItem x:Name="counponManagementTab" Header="Khuyến mãi" />
+
+            <TabItem Header="Nhập hàng">
+                <TabControl TabStripPlacement="Top">
+                    <TabItem x:Name="importTab" Header="Nhập hàng" HorizontalAlignment="Right">
+                        <Frame Source="/Pages/ImportManagement.xaml"></Frame>
+                    </TabItem>
+
+                    <TabItem x:Name="importDetailTab" Header="Chi tiết phiếu nhập" HorizontalAlignment="Left">
+                        <Frame Source="/Pages/ImportDetail.xaml"></Frame>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+
+            <TabItem Header="Thống kê">
+                <TextBlock Margin="8" Text="Left placement" />
+            </TabItem>
+
+            <TabItem x:Name="profileTab" Header="Thông tin cá nhân" />
+        </TabControl>
+    </Grid>
+</Window>

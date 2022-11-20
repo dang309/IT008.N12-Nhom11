@@ -1,0 +1,14 @@
+﻿<Page x:Class="FastFood.Pages.RightManagement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FastFood.Pages" mc:Ignorable="d" d:DesignHeight="576" d:DesignWidth="1024" Title="RightManagement">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,4">Quản lý phân quyền</TextBlock>
+            <DataGrid x:Name="tbRights" Width="964" Height="230" AutoGeneratingColumn="tbRights_AutoGeneratingColumn"></DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

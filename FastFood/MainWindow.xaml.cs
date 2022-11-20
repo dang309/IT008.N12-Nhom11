@@ -1,14 +1,12 @@
-﻿using FastFood.Forms;
-using FastFood.Objects;
-using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Interop;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+
+using MySql.Data.MySqlClient;
+
+using FastFood.Forms;
 
 namespace FastFood
 {
@@ -17,86 +15,44 @@ namespace FastFood
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const int GWL_STYLE = -16;
-        private const int WS_SYSMENU = 0x80000;
-        [DllImport("user32.dll", SetLastError = true)]
-        private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-        [DllImport("user32.dll")]
-        private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
         public MainWindow()
         {
             InitializeComponent();
 
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            ResizeMode = ResizeMode.NoResize;
-            WindowStyle = WindowStyle.None;
-
-            Loaded += (sender, args) =>
-            {
-                var hwnd = new WindowInteropHelper(this).Handle;
-                SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) & ~WS_SYSMENU);
-            };
         }
 
-        private void Hover_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        ~MainWindow()
         {
-            Close_img.Source = new BitmapImage(new Uri("image/loginUI/btn-close--hover.png", UriKind.Relative));
+            Tools.DisConnect();
         }
 
-        private void Close_btn_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            Close_img.Source = new BitmapImage(new Uri("image/loginUI/btn-close.png", UriKind.Relative));
-        }
+            string username = this.txtUsername.Text;
+            string password = this.txtPassword.Password;
+            string queryStr = "Select * from taikhoan Where TenDangNhap=@username AND MatKhau=@password;";
 
-        private void Forgot_btn_Click(object sender, RoutedEventArgs e)
-        {
-            new Forgot_form().Show();
-        }
+            MySqlCommand cm = Tools.Connect(queryStr);
 
-        private void Login_btn_Click(object sender, RoutedEventArgs e)
-        {
-            string user_name = User_name_editTxt.Text;
-            string password = Password_editTxt.Text;
-
-            MySqlConnection cn = null;
-            MySqlCommand cm = Tools.Connect(ref cn);
-
-            cm.Parameters.Add("_name", MySqlDbType.VarChar).Value = user_name;
-            cm.Parameters.Add("_pass", MySqlDbType.VarChar).Value = password;
-            cm.CommandText = "Select * from taikhoan Where TenDangNhap=@_name AND MatKhau=@_pass;";
+            cm.Parameters.Add("username", MySqlDbType.VarChar).Value = username;
+            cm.Parameters.Add("password", MySqlDbType.VarChar).Value = password;
 
             MySqlDataReader reader = cm.ExecuteReader();
 
-            DataTable table = new DataTable();
-            table.Load(reader);
-            reader.Close();
-
-            if(table.Rows.Count == 0)
+            if (!reader.HasRows)
             {
-                MessageBox.Show("Wrong user name or password! Please try again!", "Invalid login", MessageBoxButton.OK);
-            }
-            else
-            {
-                DataRow dr = table.Rows[0];
-
-                int emp_code = Convert.ToInt32(dr[0]);
-
-                dr = table.Rows[0];
-
-                Logged_in_form form = new Logged_in_form();
-
-                form.Prepare(emp_code, cm);
-                form.Show();
-                Close();
+                MessageBox.Show("Vui lòng thử lại hoặc liên hệ 19521315@gm.uit.edu.vn để giải quyết!", "Đăng nhập không hợp lệ!", MessageBoxButton.OK);
+                return;
             }
 
-            cn.Close();
-        }
+            while (reader.Read())
+            {
+                int empId = reader.GetInt32("MaNV");
+                new Dashboard(empId).Show();
+                this.Close();
 
-        private void Close_btn_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
+            }
+
         }
     }
 }

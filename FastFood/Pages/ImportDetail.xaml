@@ -1,0 +1,55 @@
+﻿<Page x:Class="FastFood.Pages.ImportDetail"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+  xmlns:local="clr-namespace:FastFood.Pages" mc:Ignorable="d" d:DesignHeight="576" d:DesignWidth="1024" Title="ImportDetail">
+
+  <Grid>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel Width="403">
+        <TextBlock Text="Phiếu nhập" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,4"/>
+
+
+        <StackPanel HorizontalAlignment="Center" Margin="0,4,0,4">
+          <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="txtMaPN" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Mã phiếu nhập" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+            <TextBox x:Name="txtMaNCC" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Mã nhà cung cấp" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,-1,0,0" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+            <TextBox x:Name="txtNV" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Mã nhân viên" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+            <TextBox x:Name="txtNgayLap" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Ngày lập" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,0,0,0" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="txtTongTien" Width="256" FontSize="14" materialDesign:HintAssist.Hint="Tổng tiền" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+          </StackPanel>
+        </StackPanel>
+
+        <DataGrid x:Name="tbGRN" AutoGenerateColumns="True" Margin="0,4,0,4" Width="370" Height="252"></DataGrid>
+      </StackPanel>
+
+      <Separator Width="24" Background="Transparent" />
+
+      <StackPanel Width="592">
+        <TextBlock Text="Chi tiết phiếu nhập" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,4"/>
+
+
+        <StackPanel HorizontalAlignment="Center" Margin="0,4,0,4">
+          <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="txtTenSP" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Tên sản phẩm" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+            <TextBox x:Name="txtSoLuongNhap" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Số lượng nhập" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,-1,0,0" />
+          </StackPanel>
+          <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+            <TextBox x:Name="txtDonGia" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Đơn giá" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+            <TextBox x:Name="txtThanhTien" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Thành tiền" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,0,0,0" />
+          </StackPanel>
+
+        </StackPanel>
+
+        <DataGrid x:Name="tbGRNDetail" AutoGenerateColumns="True" Margin="0,4,0,4" Width="547" Height="331"></DataGrid>
+      </StackPanel>
+
+    </StackPanel>
+  </Grid>
+</Page>

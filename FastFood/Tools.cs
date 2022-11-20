@@ -7,17 +7,24 @@ namespace FastFood
 {
     class Tools
     {
-        public static MySqlCommand Connect(ref MySqlConnection cn)
-        {
-            cn = new MySqlConnection(
-                "SERVER=localhost;" +
+        private readonly static string connectionStr = "SERVER=localhost;" +
                 "DATABASE=fastfoodmanagement;" +
                 "UID=root;" +
-                "PASSWORD=TerMiNaTor_309;");
+                "PASSWORD=192837;";
+        private static MySqlConnection con;
+        public static MySqlCommand Connect(string queryStr)
+        {
+            con = new MySqlConnection(connectionStr);
+            MySqlCommand cmd = new MySqlCommand(queryStr, con);
 
-            cn.Open();
+            con.Open();
 
-            return cn.CreateCommand();
+            return cmd;
+        }
+
+        public static void DisConnect()
+        {
+            con.Close();
         }
     }
 }

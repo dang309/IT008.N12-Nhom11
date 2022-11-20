@@ -1,0 +1,45 @@
+﻿<Page x:Class="FastFood.Pages.Profile"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+  xmlns:local="clr-namespace:FastFood.Pages" mc:Ignorable="d" d:DesignHeight="576" d:DesignWidth="1024" Title="Profile">
+
+  <Grid>
+    <StackPanel>
+      <TextBlock Text="Thông tin cá nhân" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,4"/>
+      <StackPanel HorizontalAlignment="Center" Margin="0,4,0,4">
+        <TextBox x:Name="txtMaNV" Width="256" FontSize="14" IsReadOnly="True" materialDesign:HintAssist.Hint="Mã nhân viên" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,0,0" />
+        <TextBox x:Name="txtHoDem" Width="256" FontSize="14" IsReadOnly="True" materialDesign:HintAssist.Hint="Họ đệm" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,8,0,8" />
+        <TextBox x:Name="txtTen" Width="256" FontSize="14" IsReadOnly="True" materialDesign:HintAssist.Hint="Tên" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,0,0" />
+        <TextBox x:Name="txtGioiTinh" Width="256" FontSize="14" IsReadOnly="True" materialDesign:HintAssist.Hint="Giới tính" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,8,0,8" />
+        <TextBox x:Name="txtChucVu" Width="256" FontSize="14" IsReadOnly="True" materialDesign:HintAssist.Hint="Chức vụ" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,0,0" />
+      </StackPanel>
+
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+        <Button x:Name="btnChangePass" Style="{StaticResource MaterialDesignOutlinedButton}" Foreground="#F49D1A" materialDesign:RippleAssist.IsDisabled="True" BorderBrush="#F49D1A" Margin="0,0,4,0" Click="btnChangePass_Click">
+          <StackPanel Orientation="Horizontal">
+            <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Cog" Foreground="#F49D1A" />
+
+            <TextBlock Text="Đổi mật khẩu" Foreground="#F49D1A" />
+          </StackPanel>
+        </Button>
+
+        <Button x:Name="btnLogout" Style="{StaticResource MaterialDesignOutlinedButton}" Foreground="#DC3535" materialDesign:RippleAssist.IsDisabled="True" BorderBrush="#DC3535" Margin="4,0,0,0" Click="btnLogout_Click">
+ 
+
+          <StackPanel Orientation="Horizontal">
+            <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Logout" Foreground="#DC3535" />
+
+            <TextBlock Text="Đăng xuất" Foreground="#DC3535" />
+          </StackPanel>
+        </Button>
+
+
+      </StackPanel>
+    </StackPanel>
+  </Grid>
+
+
+</Page>

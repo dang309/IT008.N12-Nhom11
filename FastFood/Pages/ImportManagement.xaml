@@ -1,0 +1,64 @@
+﻿<Page x:Class="FastFood.Pages.ImportManagement"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+  xmlns:local="clr-namespace:FastFood.Pages" mc:Ignorable="d" d:DesignHeight="576" d:DesignWidth="1024" Title="ImportManagement">
+
+  <Grid>
+    <StackPanel Orientation="Horizontal">
+      <StackPanel Width="723" HorizontalAlignment="Left">
+        <StackPanel>
+          <TextBlock Text="Kho hàng" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+          <TextBox x:Name="txtSearch" Width="256" FontSize="14" materialDesign:HintAssist.Hint="Tìm kiếm" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,4,4,4" />
+          <DataGrid x:Name="tbProducts" AutoGenerateColumns="True" Height="229" Width="668"/>
+        </StackPanel>
+
+        <StackPanel Margin="0,4,0,0">
+          <TextBlock Text="Hàng chờ nhập" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+          <DataGrid x:Name="tbWaitingImportProducts" AutoGenerateColumns="True" Height="181" Width="676"/>
+        </StackPanel>
+      </StackPanel>
+      <Separator Width="16" Background="Transparent"/>
+      <StackPanel Width="297">
+        <StackPanel>
+          <TextBlock Text="Thông tin sản phẩm" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,4"/>
+
+          <StackPanel>
+            <StackPanel Orientation="Horizontal">
+              <TextBox x:Name="txtMaKM" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Mã khuyến mãi" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+              <TextBox x:Name="txtTenCT" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Tên chương trình" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,-1,0,0" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+              <TextBox x:Name="txtDicountRate" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Phần trăm giảm" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+              <TextBox x:Name="txtMinimalTotal" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Điều kiện (>x)" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,0,0,0" />
+            </StackPanel>
+          </StackPanel>
+
+          <Button x:Name="btnSave" Width="128" Content="Lưu" Margin="0,4,0,0"/>
+
+        </StackPanel>
+
+        <StackPanel Margin="0,8,0,0">
+          <TextBlock Text="Thông tin phiếu nhập" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,0"/>
+          <StackPanel Margin="0,4,0,0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+              <TextBox x:Name="txtProvider" IsReadOnly="True" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Nhà cung cấp" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+              <Button x:Name="btnPickProvider" Width="64" Content="Chọn" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="0,16,0,8"/>
+            </StackPanel>
+
+            <TextBox x:Name="txtEmployee" IsReadOnly="True" Width="191" FontSize="14" materialDesign:HintAssist.Hint="Nhân viên" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="0,4,0,0" />
+
+          </StackPanel>
+
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+            <Button x:Name="btnDelete" Width="64" Content="Xóa" Style="{StaticResource MaterialDesignOutlinedButton}" Margin="0,0,4,0"/>
+            <Button x:Name="btnConfirm" Width="128" Content="Xác nhận" />
+          </StackPanel>
+        </StackPanel>
+
+      </StackPanel>
+    </StackPanel>
+  </Grid>
+</Page>

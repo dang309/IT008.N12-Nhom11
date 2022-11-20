@@ -1,0 +1,104 @@
+﻿<Page x:Class="FastFood.Pages.EmployeeManagement" x:Name="_employeeManagementPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FastFood.Pages"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" mc:Ignorable="d" d:DesignHeight="576" d:DesignWidth="1024" Title="EmployeeManagement">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,4,0,4">Quản lý nhân viên</TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,8,0,0">
+                <StackPanel HorizontalAlignment="Center" Margin="0,4,0,4">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="txtMaNV" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Mã nhân viên" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+                        <TextBox x:Name="txtHoDem" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Họ đệm" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,-1,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,4,0,4">
+                        <TextBox x:Name="txtTen" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Tên" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+                        <TextBox x:Name="txtGioiTinh" Width="128" FontSize="14" materialDesign:HintAssist.Hint="Giới tính" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="4,0,0,0" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="txtChucVu" Width="256" FontSize="14" materialDesign:HintAssist.Hint="Chức vụ" BorderThickness="2" BorderBrush="{DynamicResource MaterialDesignDivider}" Style="{StaticResource MaterialDesignOutlinedTextBox}" VerticalAlignment="Stretch" Margin="0,0,4,0" />
+                    </StackPanel>
+                </StackPanel>
+
+
+
+
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+                <Button x:Name="btnAdding" Style="{StaticResource MaterialDesignOutlinedButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Add" Foreground="#0D4C92" />
+                        <TextBlock Text="Thêm" Foreground="#000" />
+
+                    </StackPanel>
+                </Button>
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Margin="8,0,8,0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Edit" Foreground="#F49D1A" />
+                        <TextBlock Text="Lưu" Foreground="#000" />
+
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Delete" Foreground="#DC3535" />
+
+                        <TextBlock Text="Xóa" Foreground="#000" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Margin="8,0,8,0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="MicrosoftExcel" Foreground="#1D6F42" />
+
+                        <TextBlock Text="Xuất" Foreground="#000" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="MicrosoftExcel" Foreground="#1D6F42" />
+
+                        <TextBlock Text="Nhập" Foreground="#000" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="AccountPlus" Foreground="#0D4C92" />
+
+                        <TextBlock Text="Cấp tài khoản" Foreground="#000" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Margin="8,0,8,0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="FormTextboxPassword" Foreground="#F49D1A" />
+
+                        <TextBlock Text="Mật khẩu/Quyền" Foreground="#000" />
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="AccountLock" Foreground="#DC3535" />
+
+                        <TextBlock Text="Xóa tài khoản" Foreground="#000" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+
+            <DataGrid x:Name="tbEmployees" AutoGenerateColumns="True" Margin="0,8,0,0" Width="964" Height="230" VerticalScrollBarVisibility="Visible"></DataGrid>
+        </StackPanel>
+
+    </Grid>
+</Page>
