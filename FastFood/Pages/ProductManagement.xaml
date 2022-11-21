@@ -42,22 +42,15 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
-                <Button x:Name="btnAdding" Style="{StaticResource MaterialDesignOutlinedButton}">
+                <Button x:Name="btnAdding" Style="{StaticResource MaterialDesignOutlinedButton}" Click="btnAdding_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Add" Foreground="#0D4C92" />
                         <TextBlock Text="Thêm" Foreground="#000" />
 
                     </StackPanel>
                 </Button>
-                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Margin="8,0,8,0">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Edit" Foreground="#F49D1A" />
-                        <TextBlock Text="Lưu" Foreground="#000" />
-
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource MaterialDesignOutlinedButton}">
+                
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Click="Button_Click">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Margin="0 .5 4 0" Kind="Delete" Foreground="#DC3535" />
 
@@ -65,24 +58,25 @@
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Margin="8,0,8,0">
+                <Button Style="{StaticResource MaterialDesignOutlinedButton}" Margin="8,0,8,0" Click="Button_Click_1">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Margin="0 .5 4 0" Kind="MicrosoftExcel" Foreground="#1D6F42" />
 
                         <TextBlock Text="Xuất" Foreground="#000" />
                     </StackPanel>
                 </Button>
-
-                <Button Style="{StaticResource MaterialDesignOutlinedButton}">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Margin="0 .5 4 0" Kind="MicrosoftExcel" Foreground="#1D6F42" />
-
-                        <TextBlock Text="Nhập" Foreground="#000" />
-                    </StackPanel>
-                </Button>
             </StackPanel>
 
-            <DataGrid x:Name="tbProducts" AutoGenerateColumns="True" Margin="0,8,0,0" Width="800" Height="208"></DataGrid>
+            <DataGrid x:Name="tbProducts" AutoGenerateColumns="False" Margin="0,8,0,0" Width="800" Height="208" SelectionChanged="tbProducts_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Mã sản phẩm" Binding="{Binding MaSP}" IsReadOnly="True"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding TenSP}" IsReadOnly="True"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Đơn vị tính" Binding="{Binding DonViTinh}" IsReadOnly="True"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Hình ảnh" Binding="{Binding HinhAnh}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </StackPanel>
 
     </Grid>

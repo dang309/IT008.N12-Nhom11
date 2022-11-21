@@ -1,21 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data;
 
 using MySql.Data.MySqlClient;
 
 using FastFood.DTOs;
-using FastFood.Forms;
+using System.Collections.ObjectModel;
 
 namespace FastFood.Pages
 {
@@ -25,16 +18,16 @@ namespace FastFood.Pages
     public partial class Selling : Page
     {
         public int currentEmpId { get; set; }
-        private List<Product> productsInCart { get; set; }
+        private ObservableCollection<Product> productsInCart { get; set; }
+        private string lastDonViTinh;
         public Selling()
         {
             InitializeComponent();
 
+            this.productsInCart = new ObservableCollection<Product>();
+
             getProducts();
             setupTableProductsInCart();
-
-            this.productsInCart = new List<Product>();
-
         }
 
         public void getProducts()
@@ -51,8 +44,7 @@ namespace FastFood.Pages
             MySqlDataAdapter da = new MySqlDataAdapter(cm);
             da.Fill(dataTable);
             this.tbProducts.ItemsSource = dataTable.DefaultView;
-
-
+            this.tbProductsInCart.ItemsSource = productsInCart;
         }
 
         public string getInfoEmp()
@@ -68,24 +60,13 @@ namespace FastFood.Pages
 
             while (reader.Read())
             {
-                int maNV = reader.GetInt32("MaNV");
-
                 string ho = reader.GetString("Ho");
                 string ten = reader.GetString("Ten");
                 result = ho + " " + ten;
 
-                MessageBox.Show(maNV.ToString());
-
             }
             return result;
         }
-
-        public void addToCart(Product p)
-        {
-            this.productsInCart.Add(p);
-        }
-
-
 
         private void tbProducts_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
@@ -97,7 +78,6 @@ namespace FastFood.Pages
             {
                 e.Cancel = true;
             }
-
         }
 
         private void getProductDetail(string selectedProductId)
@@ -119,6 +99,7 @@ namespace FastFood.Pages
                 this.txtTenSP.Text = reader.GetString("TenSP");
                 this.txtDonGia.Text = reader.GetString("DonGia");
                 this.txtSoLuong.Text = "1";
+                lastDonViTinh = reader.GetString("DonViTinh");
                 // string stringPath = "/image/SanPham/" + reader.GetString("HinhAnh");
                 // Uri imageUri = new Uri(stringPath, UriKind.Relative);
                 // BitmapImage imageBitmap = new BitmapImage(imageUri);
@@ -138,30 +119,6 @@ namespace FastFood.Pages
 
         private void setupTableProductsInCart()
         {
-            DataGridTextColumn col1 = new DataGridTextColumn();
-            DataGridTextColumn col2 = new DataGridTextColumn();
-            DataGridTextColumn col3 = new DataGridTextColumn();
-            DataGridTextColumn col4 = new DataGridTextColumn();
-            DataGridTextColumn col5 = new DataGridTextColumn();
-
-            tbProductsInCart.Columns.Add(col1);
-            tbProductsInCart.Columns.Add(col2);
-            tbProductsInCart.Columns.Add(col3);
-            tbProductsInCart.Columns.Add(col4);
-            tbProductsInCart.Columns.Add(col5);
-
-            col1.Binding = new Binding("MaSP");
-            col2.Binding = new Binding("TenSP");
-            col3.Binding = new Binding("DonGia");
-            col4.Binding = new Binding("DatHang") { Mode = BindingMode.TwoWay };
-            col5.Binding = new Binding("ThanhTien") { Mode = BindingMode.TwoWay };
-
-            col1.Header = "Mã sản phẩm";
-            col2.Header = "Tên sản phẩm";
-            col3.Header = "Đơn giá";
-            col4.Header = "Số lượng";
-            col5.Header = "Thành tiền";
-
             tbProductsInCart.CanUserDeleteRows = true;
         }
 
@@ -171,21 +128,22 @@ namespace FastFood.Pages
             {
                 if (productsInCart[i].MaSP == this.txtMaSP.Text)
                 {
-                    productsInCart[i].DatHang += Int32.Parse(this.txtSoLuong.Text);
-                    productsInCart[i].ThanhTien = productsInCart[i].SoLuong * productsInCart[i].DonGia;
+                    productsInCart[i].SoLuong += Int32.Parse(this.txtSoLuong.Text);
                     return;
                 }
             }
-            this.productsInCart.Add(new Product() { MaSP = this.txtMaSP.Text, DatHang = Int32.Parse(this.txtSoLuong.Text) });
 
-            tbProductsInCart.Items.Add(new Product()
+            Product product = new Product()
             {
-                MaSP = this.txtMaSP.Text,
-                TenSP = this.txtTenSP.Text,
+                MaSP = txtMaSP.Text,
+                TenSP = txtTenSP.Text,
+                DonViTinh = lastDonViTinh,
                 DonGia = Int32.Parse(this.txtDonGia.Text),
-                DatHang = Int32.Parse(this.txtSoLuong.Text),
+                SoLuong = Int32.Parse(this.txtSoLuong.Text),
                 ThanhTien = Int32.Parse(this.txtDonGia.Text) * Int32.Parse(this.txtSoLuong.Text)
-            });
+            };
+
+            productsInCart.Add(product);
         }
 
 

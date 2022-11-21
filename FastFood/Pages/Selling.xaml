@@ -17,7 +17,16 @@
 
                 <StackPanel Height="265" HorizontalAlignment="Center" Width="670">
                     <TextBlock Text="Giỏ hàng" FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,4,0,4" />
-                    <DataGrid x:Name="tbProductsInCart" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible">
+                    <DataGrid AutoGenerateColumns="False" Height="170"  x:Name="tbProductsInCart" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Mã sản phẩm" Binding="{Binding MaSP}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Tên sản phẩm" Binding="{Binding TenSP}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Số lượng" Binding="{Binding SoLuong}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Đơn vị tính" Binding="{Binding DonViTinh}" IsReadOnly="True"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Đơn giá" Binding="{Binding DonGia}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Thành tiền" IsReadOnly="True" Binding="{Binding ThanhTien}"></DataGridTextColumn>
+                        </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
             </StackPanel>
