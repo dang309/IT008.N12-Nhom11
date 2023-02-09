@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QL_CUAHANGADIDAS", "QL_CUAHANGADIDAS\QL_CUAHANGADIDAS.csproj", "{A6852EB4-F327-4757-8CE8-D7114DF8C130}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6852EB4-F327-4757-8CE8-D7114DF8C130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6852EB4-F327-4757-8CE8-D7114DF8C130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6852EB4-F327-4757-8CE8-D7114DF8C130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6852EB4-F327-4757-8CE8-D7114DF8C130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B52D86-D878-4279-8F8F-38FF20C786AB}.Debug|Any CPU.ActiveCfg = Debug
+		{D1B52D86-D878-4279-8F8F-38FF20C786AB}.Release|Any CPU.ActiveCfg = Release
+		{3D4C3854-F26F-433C-9825-E4C3EBC3173F}.Debug|Any CPU.ActiveCfg = Debug
+		{3D4C3854-F26F-433C-9825-E4C3EBC3173F}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A32AE184-A28C-47C4-82EC-EA2BDA2F16EF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A6852EB4-F327-4757-8CE8-D7114DF8C130}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QL_CUAHANGADIDAS</RootNamespace>
+    <AssemblyName>QL_CUAHANGADIDAS</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.52">
+      <HintPath>C:\Users\Alexis\Downloads\Bunifu_UI_v1.52.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAO\BillDAO.cs" />
+    <Compile Include="DAO\BillDetailsDAO.cs" />
+    <Compile Include="DAO\CustomerDAO.cs" />
+    <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\AccountDAO.cs" />
+    <Compile Include="DAO\Excel.cs" />
+    <Compile Include="DAO\ShoesDAO.cs" />
+    <Compile Include="DAO\StaffDAO.cs" />
+    <Compile Include="DTO\BillDetails.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\Account.cs" />
+    <Compile Include="DTO\Shoes.cs" />
+    <Compile Include="DTO\Staff.cs" />
+    <Compile Include="Form\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmAccount.Designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmAddCus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmAddCus.Designer.cs">
+      <DependentUpon>frmAddCus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmBestSeller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmBestSeller.Designer.cs">
+      <DependentUpon>frmBestSeller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmBill.Designer.cs">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmBillDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmBillDetail.Designer.cs">
+      <DependentUpon>frmBillDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmChooseStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmChooseStaff.Designer.cs">
+      <DependentUpon>frmChooseStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmBestSelling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmBestSelling.Designer.cs">
+      <DependentUpon>frmBestSelling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmMostBuyer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmMostBuyer.Designer.cs">
+      <DependentUpon>frmMostBuyer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmPrintBilling.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmPrintBilling.Designer.cs">
+      <DependentUpon>frmPrintBilling.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmShoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmShoes.Designer.cs">
+      <DependentUpon>frmShoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmStaff.Designer.cs">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\frmReportSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\frmReportSales.Designer.cs">
+      <DependentUpon>frmReportSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\QL_CUAHANGADIDASDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QL_CUAHANGADIDASDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Form\UCBill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCBill.Designer.cs">
+      <DependentUpon>UCBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UCCustomer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCCustomer.Designer.cs">
+      <DependentUpon>UCCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UCHome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCHome.Designer.cs">
+      <DependentUpon>UCHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UCShopping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCShopping.Designer.cs">
+      <DependentUpon>UCShopping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UCSystem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCSystem.Designer.cs">
+      <DependentUpon>UCSystem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UCUpdateAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCUpdateAccount.Designer.cs">
+      <DependentUpon>UCUpdateAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UCWarning.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\UCWarning.Designer.cs">
+      <DependentUpon>UCWarning.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmAddCus.resx">
+      <DependentUpon>frmAddCus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmBestSeller.resx">
+      <DependentUpon>frmBestSeller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmBill.resx">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmBillDetail.resx">
+      <DependentUpon>frmBillDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmChooseStaff.resx">
+      <DependentUpon>frmChooseStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmBestSelling.resx">
+      <DependentUpon>frmBestSelling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmMostBuyer.resx">
+      <DependentUpon>frmMostBuyer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmPrintBilling.resx">
+      <DependentUpon>frmPrintBilling.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmShoes.resx">
+      <DependentUpon>frmShoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmStaff.resx">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\frmReportSales.resx">
+      <DependentUpon>frmReportSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCBill.resx">
+      <DependentUpon>UCBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCCustomer.resx">
+      <DependentUpon>UCCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCHome.resx">
+      <DependentUpon>UCHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCShopping.resx">
+      <DependentUpon>UCShopping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCSystem.resx">
+      <DependentUpon>UCSystem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCUpdateAccount.resx">
+      <DependentUpon>UCUpdateAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UCWarning.resx">
+      <DependentUpon>UCWarning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="RpSales.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Report\QL_CUAHANGADIDASDataSet.xsc">
+      <DependentUpon>QL_CUAHANGADIDASDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Report\QL_CUAHANGADIDASDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QL_CUAHANGADIDASDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Report\QL_CUAHANGADIDASDataSet.xss">
+      <DependentUpon>QL_CUAHANGADIDASDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel1">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
